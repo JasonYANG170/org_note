@@ -20,8 +20,43 @@
 *** 字典
 sdcv
 * emacs键位
+** basic
+*** move
+| operation | keyboard | command             |
+| 跳转行号    | M-g g    | goto-line           |
+| 下一页      | C-v      | scroll-up-command   |
+| 上一页      | M-v      | scroll-down-command |
+| 交换前后字符 | C-t      | transpose-chars     |
+| 交换前后词  | M-t      | transpose-words     |
+| 交换前后行  | C-x C-t  | transpose-lines     |
+| 向上新建一行 | C-o      | open-line           |
+| 删除连续空行 | C-x C-o  | delete-blank-lines  |
+
+*** theme and view
+| 字号增加 | C-x C-= | text-scale-adjust |
+| 重置字号 | C-x C-0 | text-scale-adjust |
+| 字号减少 | C-x C-- | text-scale-adjust |
+
+*** help
+| operation   | keyboard | command              |
+| 快捷键        | C-h k    | describe-key         |
+| 简要描述快捷键 | C-h c    | describe-key-briefly |
+| 函数         | C-h f    | describe-function    |
+| 变量         | C-h v    | describe-variable    |
+| 帮助的帮助    | C-h ?    | help-for-help        |
+** magit
+| 显示所有选项 | C-x M-g | magit-dispatch |
 ** org-mode
+| 折叠小节 | TAB |   |
+| 折叠所有   |     |   |
+** doc-view
+适用于pdf-tools等
+| 下一页   | n | doc-view-previous-page |
+| 上一页   | p | doc-view-next-page     |
+| 跳转页数 |   | doc-view-goto-page     |
 * emacs命令
+| cmd   | mean | kbd |
+| imenu | 函数索引  |M-g i |
 * emacs变量
 ** mode
 * emacs函数
@@ -64,7 +99,7 @@ toggle-input-methods
 delete-selection-mode 直接替换选择区
 global-display-line-numbers-mode 'open 全局行号
 
-** Dired
+** Dired 
 *** keyboard
 | key   | mean             | command                  |
 | C-x d | 启动dired         | dired                    |
@@ -81,4 +116,6 @@ global-display-line-numbers-mode 'open 全局行号
 | <     | 上一个目录         | dired-prev-dirline       |
 
 
-
+** flymake-mode
+** winner-mode
+** flyspell
