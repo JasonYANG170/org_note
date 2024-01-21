@@ -1,4 +1,3 @@
-*
 ** system_info
 *** CPU
 #+begin_src

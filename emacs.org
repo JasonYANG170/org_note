@@ -47,8 +47,9 @@ sdcv
 ** magit
 | 显示所有选项 | C-x M-g | magit-dispatch |
 ** org-mode
-| 折叠小节 | TAB |   |
-| 折叠所有   |     |   |
+| 折叠小节      | TAB       |   |
+| 折叠所有      | shift TAB |   |
+| 快速输入#+结构 | C-c C-,   | org-insert-structure-template |
 ** doc-view
 适用于pdf-tools等
 | 下一页   | n | doc-view-previous-page |
@@ -94,7 +95,7 @@ toggle-input-methods
 | o   | 将此缓冲区显示到另一个窗口 |
 | m   | 标记为待显示             |
 | v   | 显示所有待显示           |
-| q   | 退出buffer-list         |
+| q   | 退出buffer-list        |
 
 delete-selection-mode 直接替换选择区
 global-display-line-numbers-mode 'open 全局行号
