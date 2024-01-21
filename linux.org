@@ -1,0 +1,12 @@
+*
+** system_info
+*** CPU
+#+begin_src
+  cat /proc/cpuinfo
+#+end_src
+
+** system_manage
+*** free the dram shared buff
+#+begin_src
+  echo 3 >/proc/sys/vm/drop_caches
+#+end_src

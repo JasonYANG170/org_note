@@ -1,0 +1,17 @@
+* Sql注入
+** 系统库
+| information_schema |   |   |
+| performance_schema |   |   |
+| mysql              |   |   |
+| sys                |   |   |
+** sql语法
+*** 基本操作
+| 登陆数据库       | mysql -uroot -ppassword -h 地址         |
+| 列出数据库       | show databases;                        |
+| 选中数据库       | use 数据库;                              |
+| 列出选中数据库的表 | show tables;                           |
+*** 查询操作
+| 查询选中表的数据 | select * from 表 ;            |
+| 限制查询        | select * from 表 where 表达式; |
+| 合并查询        | select * from 表 where 表达式1 union select * from 表 where 表达式2 |
+
