@@ -1,0 +1,16 @@
+* DonjuanPlatinum
+
+donjuan@donjuan.lecturify.net
+#+CAPTION: 唐璜铂金
+#+ATTR_HTML: :width 10%
+[[./donjuan.png]]
+
+** emacs
+[[./emacs.html]]
+** linux
+[[./linux.html]]
+** network
+[[./network_sec.html]]
+
+** algorithm
+[[./algorithms.html]]
