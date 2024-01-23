@@ -5,7 +5,7 @@
 #+end_src
 
 ** system_manage
-*** free the dram shared buff
+*** 清理内核缓冲区
 #+begin_src
   echo 3 >/proc/sys/vm/drop_caches
 #+end_src

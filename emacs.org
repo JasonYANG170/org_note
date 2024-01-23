@@ -21,6 +21,9 @@
 sdcv
 * emacs键位
 ** basic
+*** 拼符
+| 进入拼符模式 | C-\ | toggle-input-method |
+|           |     |                     |
 *** move
 | operation | keyboard | command             |
 | 跳转行号    | M-g g    | goto-line           |
