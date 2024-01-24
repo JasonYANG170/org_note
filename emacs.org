@@ -103,6 +103,27 @@ toggle-input-methods
 delete-selection-mode 直接替换选择区
 global-display-line-numbers-mode 'open 全局行号
 
+** ibuffer
+*** 设置
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+*** 命令
+| /m | 基于mode分组筛选    |   |
+| /g | 根据筛选结果创建分组 |   |
+| // | 回到全部列表        |   |
+| /n | 基于name分组筛选     |   |
+| /c | 根据内容分组筛选     |   |
+| /f | 基于filename分组筛选 |   |
+| /> | 基于buffer size筛选 |   |
+| /< | 基于buffer size筛选 |   |
+| /\ | 删除所有分组            |   |
+
+被标记的buffer
+| m | 标记                 |   |
+| d | 删除标记的buffer      |   |
+| s | 保存标记的buffer      |   |
+| v | 查看标记的buffer      |   |
+| t | 切换标记的buffer为只读 |   |
+| x | 关闭所有被标记的buffer |   |
 ** Dired 
 *** keyboard
 | key   | mean             | command                  |
