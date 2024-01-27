@@ -1,0 +1,12 @@
+* Rust
+** HashMap
+*** 创建HashMap
+#+begin_src Rust
+  use std::collections::HashMap;
+  let mut map = HashMap::new();
+#+end_src
+*** 方法
+
+| 插入覆盖 | .insert(k:K, v:V) |
+| 查询    | .get(k:K)         |
+|        |                   |
