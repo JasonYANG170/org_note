@@ -53,6 +53,11 @@ sdcv
 | 折叠小节      | TAB       |   |
 | 折叠所有      | shift TAB |   |
 | 快速输入#+结构 | C-c C-,   | org-insert-structure-template |
+** tab
+| C-x t RET | 选择Tab |   |
+| C-x t 0   | 关闭Tab |   |
+| C-x t 2   | 创建Tab |   |
+| C-x t r   | 重命名Tab |   |
 ** doc-view
 适用于pdf-tools等
 | 下一页   | n | doc-view-previous-page |
