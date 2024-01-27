@@ -21,6 +21,9 @@
 sdcv
 * emacs键位
 ** basic
+*** Search and Replace
+| M-% | 替换模式  |   |
+|     |   |   |
 *** 拼符
 | 进入拼符模式 | C-\ | toggle-input-method |
 |           |     |                     |
@@ -112,23 +115,36 @@ global-display-line-numbers-mode 'open 全局行号
 *** 设置
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 *** 命令
-| /m | 基于mode分组筛选    |   |
-| /g | 根据筛选结果创建分组 |   |
-| // | 回到全部列表        |   |
-| /n | 基于name分组筛选     |   |
-| /c | 根据内容分组筛选     |   |
-| /f | 基于filename分组筛选 |   |
-| /> | 基于buffer size筛选 |   |
-| /< | 基于buffer size筛选 |   |
-| /\ | 删除所有分组            |   |
+**** 筛选
+| /m   | 基于mode分组筛选     |   |
+| /g   | 根据筛选结果创建分组  |   |
+| //   | 回到全部列表         |   |
+| /n   | 基于name分组筛选     |   |
+| /c   | 根据内容分组筛选     |   |
+| /f   | 基于filename分组筛选 |   |
+| />   | 基于buffer size筛选 |   |
+| /<   | 基于buffer size筛选 |   |
+| /\   | 删除所有分组         |   |
+| /SPC | 根据提示筛选         |   |
+| /S   | 保存现有分组         |   |
+| /R   | 恢复保存分组         |   |
+| /X   | 删除保存分组            |   |
 
-被标记的buffer
-| m | 标记                 |   |
-| d | 删除标记的buffer      |   |
-| s | 保存标记的buffer      |   |
-| v | 查看标记的buffer      |   |
-| t | 切换标记的buffer为只读 |   |
-| x | 关闭所有被标记的buffer |   |
+**** 被标记的buffer
+
+| D     | 删除标记的buffer      |   |
+| S     | 保存标记的buffer      |   |
+| v     | 查看标记的buffer      |   |
+| T     | 切换标记的buffer为只读 |   |
+| x     | 关闭所有被标记的buffer |   |
+| A/RET | 查看此buffer          |   |
+
+**** 用于标记
+| m   | 标记         |   |
+| t   | 取消所有标记   |   |
+| u   | 取消标记      |   |
+| * u | 标记所有未保存 |   |
+| * r | 标记所有只读      |   |
 ** Dired 
 *** keyboard
 | key   | mean             | command                  |
@@ -144,6 +160,8 @@ global-display-line-numbers-mode 'open 全局行号
 | Z     | 压缩与解压         | dired-do-compress        |
 | >     | 下一个目录         | dired-next-dirline       |
 | <     | 上一个目录         | dired-prev-dirline       |
+
+
 
 
 ** flymake-mode
