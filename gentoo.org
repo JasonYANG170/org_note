@@ -541,6 +541,8 @@ en_US.UTF-8 UTF-8
 
 #+end_src
 
+**** 内核
+
 *** 安装文件表
 #+begin_src
 acct-group/audio-0-r2
