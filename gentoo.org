@@ -542,7 +542,49 @@ en_US.UTF-8 UTF-8
 #+end_src
 
 **** 内核
+#+begin_src shell
 
+  emerge linux-firmware
+  emerge gentoo-sources
+  emerge genkernel
+  time genkernel all
+
+#+end_src
+**** rc
+#+begin_src shell
+  emerge dhcpcd
+  emerge networkmanager
+  emerge syslog-ng
+  emerge cronie
+  emerge virtual/sshd
+  rc-update add dhcpcd default
+  rc-update add syslog-ng default
+  rc-update add sshd default
+  rc-update add cronie default
+  emerge sudo
+  useradd -m donjuan
+  passwd donjuan
+  
+#+end_src
+**** grub
+#+begin_src shell
+  emerge sys-boot/grub
+  grub-install --target=x86_64-efi --efi-directory=/efi --removable
+  grub-mkconfig -o /boot
+#+end_src
+
+**** umount
+#+begin_src shell
+  umount /mnt/gentoo/dev
+  umount /mnt/gentoo/proc
+  umount /mnt/gentoo/efi
+  umount /mnt/gentoo
+#+end_src
+
+**** kde
+#+begin_src shell
+  emerge 
+#+end_src
 *** 安装文件表
 #+begin_src
 acct-group/audio-0-r2
