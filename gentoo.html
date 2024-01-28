@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-01-28 日 15:20 -->
+<!-- 2024-01-28 日 18:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,39 +200,39 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org25a3bd7">1. gentoo</a>
+<li><a href="#org36df3d4">1. gentoo</a>
 <ul>
-<li><a href="#orga5f84c9">1.1. 配置文件</a>
+<li><a href="#org7d40cc8">1.1. 配置文件</a>
 <ul>
-<li><a href="#orga3ae583">1.1.1. use大全 /var/db/repos/profiles/use.desc</a></li>
-<li><a href="#orgb6875cf">1.1.2. /etc/portage/make.conf</a></li>
-<li><a href="#org2528654">1.1.3. /etc/portage/repos.conf/gentoo.conf</a></li>
+<li><a href="#org2c52061">1.1.1. use大全 /var/db/repos/profiles/use.desc</a></li>
+<li><a href="#org0a47009">1.1.2. /etc/portage/make.conf</a></li>
+<li><a href="#org2d03abf">1.1.3. /etc/portage/repos.conf/gentoo.conf</a></li>
 </ul>
 </li>
-<li><a href="#orga13c99d">1.2. 安装</a>
+<li><a href="#org6d5fd9f">1.2. 安装</a>
 <ul>
-<li><a href="#orga2fd217">1.2.1. 1.挂载</a></li>
-<li><a href="#org321fb86">1.2.2. 2.stage3</a></li>
-<li><a href="#org59d36f2">1.2.3. 安装文件表</a></li>
-<li><a href="#orgea82bdb">1.2.4. sdcv</a></li>
+<li><a href="#org3da9e22">1.2.1. 1.挂载</a></li>
+<li><a href="#org8e6b8c0">1.2.2. 2.stage3</a></li>
+<li><a href="#orga8af8ad">1.2.3. 安装文件表</a></li>
+<li><a href="#orgf5c3bb6">1.2.4. sdcv</a></li>
 </ul>
 </li>
-<li><a href="#org93c47a2">1.3. 一些问题</a></li>
+<li><a href="#org7c1f456">1.3. 一些问题</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org25a3bd7" class="outline-2">
-<h2 id="org25a3bd7"><span class="section-number-2">1.</span> gentoo</h2>
+<div id="outline-container-org36df3d4" class="outline-2">
+<h2 id="org36df3d4"><span class="section-number-2">1.</span> gentoo</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orga5f84c9" class="outline-3">
-<h3 id="orga5f84c9"><span class="section-number-3">1.1.</span> 配置文件</h3>
+<div id="outline-container-org7d40cc8" class="outline-3">
+<h3 id="org7d40cc8"><span class="section-number-3">1.1.</span> 配置文件</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orga3ae583" class="outline-4">
-<h4 id="orga3ae583"><span class="section-number-4">1.1.1.</span> use大全 /var/db/repos/profiles/use.desc</h4>
+<div id="outline-container-org2c52061" class="outline-4">
+<h4 id="org2c52061"><span class="section-number-4">1.1.1.</span> use大全 /var/db/repos/profiles/use.desc</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <div class="org-src-container">
 <pre class="src src-desc">  # Copyright 1999-2024 Gentoo Authors
@@ -638,8 +638,8 @@ zstd - Enable support for ZSTD compression
 </div>
 </div>
 </div>
-<div id="outline-container-orgb6875cf" class="outline-4">
-<h4 id="orgb6875cf"><span class="section-number-4">1.1.2.</span> /etc/portage/make.conf</h4>
+<div id="outline-container-org0a47009" class="outline-4">
+<h4 id="org0a47009"><span class="section-number-4">1.1.2.</span> /etc/portage/make.conf</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <div class="org-src-container">
 <pre class="src src-conf">
@@ -660,7 +660,7 @@ FFLAGS="${COMMON_FLAGS}"
 LC_MESSAGES=C.utf8
 GENTOO_MIRRORS="rsync://127.0.0.1/repo/gentoo/"
 #GENTOO_MIRRORS="rsync://mirror.nju.edu.cn/gentoo/"
-        USE="-gnome  qt5 kde dvd cdr acl alsa jack pulseaudio bluetooth"
+USE="-gnome  qt5 kde dvd cdr acl alsa jack pulseaudio bluetooth wayland browser-integration discover networkmanager sddm"
 VIDEO_CARDS="amdgpu radeonsi"
 MAKEOPTS="-j8"
 
@@ -681,8 +681,8 @@ L10N="en-US zh-CN en zh"
 </div>
 </div>
 
-<div id="outline-container-org2528654" class="outline-4">
-<h4 id="org2528654"><span class="section-number-4">1.1.3.</span> /etc/portage/repos.conf/gentoo.conf</h4>
+<div id="outline-container-org2d03abf" class="outline-4">
+<h4 id="org2d03abf"><span class="section-number-4">1.1.3.</span> /etc/portage/repos.conf/gentoo.conf</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <div class="org-src-container">
 <pre class="src src-conf">[DEFAULT]
@@ -709,24 +709,24 @@ sync-webrsync-verify-signature = no
 </div>
 </div>
 </div>
-<div id="outline-container-orga13c99d" class="outline-3">
-<h3 id="orga13c99d"><span class="section-number-3">1.2.</span> 安装</h3>
+<div id="outline-container-org6d5fd9f" class="outline-3">
+<h3 id="org6d5fd9f"><span class="section-number-3">1.2.</span> 安装</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orga2fd217" class="outline-4">
-<h4 id="orga2fd217"><span class="section-number-4">1.2.1.</span> 1.挂载</h4>
+<div id="outline-container-org3da9e22" class="outline-4">
+<h4 id="org3da9e22"><span class="section-number-4">1.2.1.</span> 1.挂载</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 将根磁盘挂载到/mnt/genoo
 </p>
 </div>
 </div>
-<div id="outline-container-org321fb86" class="outline-4">
-<h4 id="org321fb86"><span class="section-number-4">1.2.2.</span> 2.stage3</h4>
+<div id="outline-container-org8e6b8c0" class="outline-4">
+<h4 id="org8e6b8c0"><span class="section-number-4">1.2.2.</span> 2.stage3</h4>
 <div class="outline-text-4" id="text-1-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgb023f33"></a>关于stage包的区别<br />
+<li><a id="org421b87f"></a>关于stage包的区别<br />
 <div class="outline-text-5" id="text-1-2-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -760,7 +760,7 @@ sync-webrsync-verify-signature = no
 </table>
 </div>
 </li>
-<li><a id="org158f57d"></a>解压stage3<br />
+<li><a id="orge19c67d"></a>解压stage3<br />
 <div class="outline-text-5" id="text-1-2-2-2">
 <div class="org-src-container">
 <pre class="src src-shell">tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
@@ -768,9 +768,9 @@ sync-webrsync-verify-signature = no
 </div>
 </div>
 </li>
-<li><a id="org0698650"></a>创建/mnt/gentoo/etc/portage/repos.conf/gentoo.conf<br /></li>
-<li><a id="org69fbf31"></a>更改/mnt/gentoo/etc/gentoo/portage/make.conf<br /></li>
-<li><a id="orgeae48b9"></a>挂载文件系统<br />
+<li><a id="org0fd6c06"></a>创建/mnt/gentoo/etc/portage/repos.conf/gentoo.conf<br /></li>
+<li><a id="orge326350"></a>更改/mnt/gentoo/etc/gentoo/portage/make.conf<br /></li>
+<li><a id="org57c3c9b"></a>挂载文件系统<br />
 <div class="outline-text-5" id="text-1-2-2-5">
 <div class="org-src-container">
 <pre class="src src-shell">root #mount --types proc /proc /mnt/gentoo/proc
@@ -784,7 +784,7 @@ root #mount --make-slave /mnt/gentoo/run
 </div>
 </div>
 </li>
-<li><a id="orgd0e6b6f"></a>chroot<br />
+<li><a id="orgf3c102b"></a>chroot<br />
 <div class="outline-text-5" id="text-1-2-2-6">
 <div class="org-src-container">
 <pre class="src src-shell">chroot /mnt/gentoo /bin/bash
@@ -794,7 +794,7 @@ export PS1="(chroot) &amp;{PS1}"
 </div>
 </div>
 </li>
-<li><a id="org4dc784b"></a>emerge sync<br />
+<li><a id="org765c404"></a>emerge sync<br />
 <div class="outline-text-5" id="text-1-2-2-7">
 <div class="org-src-container">
 <pre class="src src-shell">emerge --sync
@@ -803,7 +803,7 @@ export PS1="(chroot) &amp;{PS1}"
 </div>
 </div>
 </li>
-<li><a id="org8fc2fb4"></a>eselect<br />
+<li><a id="orgf63f22e"></a>eselect<br />
 <div class="outline-text-5" id="text-1-2-2-8">
 <div class="org-src-container">
 <pre class="src src-shell">eselect news list
@@ -814,7 +814,7 @@ eselect profile set [number]
 </div>
 </div>
 </li>
-<li><a id="org92d0c0f"></a>配置use<br />
+<li><a id="org3384d1b"></a>配置use<br />
 <div class="outline-text-5" id="text-1-2-2-9">
 <div class="org-src-container">
 <pre class="src src-shell">emerge --info |grep ^USE #查看默认use
@@ -823,7 +823,7 @@ vi /etc/portage/make.conf
 </div>
 </div>
 </li>
-<li><a id="org2a3fddd"></a>emerge update<br />
+<li><a id="orge78f293"></a>emerge update<br />
 <div class="outline-text-5" id="text-1-2-2-10">
 <div class="org-src-container">
 <pre class="src src-shell">emerge --ask --verbose --update --deep --newuse @world
@@ -831,9 +831,9 @@ vi /etc/portage/make.conf
 </div>
 </div>
 </li>
-<li><a id="org72e62c4"></a>时区<br />
+<li><a id="orge36658c"></a>时区<br />
 <ol class="org-ol">
-<li><a id="org95156a6"></a>openrc<br />
+<li><a id="orgc363a27"></a>openrc<br />
 <div class="outline-text-6" id="text-1-2-2-11-1">
 <div class="org-src-container">
 <pre class="src src-shell">echo "Asia/Shanghai" &gt; /etc/timezone
@@ -842,7 +842,7 @@ emerge --config sys-libs/timezone-data
 </div>
 </div>
 </li>
-<li><a id="orgaaeb7ce"></a>systemd<br />
+<li><a id="org390b146"></a>systemd<br />
 <div class="outline-text-6" id="text-1-2-2-11-2">
 <div class="org-src-container">
 <pre class="src src-shell">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -852,7 +852,7 @@ emerge --config sys-libs/timezone-data
 </li>
 </ol>
 </li>
-<li><a id="org8e04fde"></a>locale /etc/locale.gen<br />
+<li><a id="orgaa69d49"></a>locale /etc/locale.gen<br />
 <div class="outline-text-5" id="text-1-2-2-12">
 <div class="org-src-container">
 <pre class="src src-gen">zh_CN.UTF-8 UTF-8
@@ -866,7 +866,7 @@ en_US.UTF-8 UTF-8
 </div>
 </div>
 </li>
-<li><a id="orgf00aa59"></a>eselect locale<br />
+<li><a id="orgc41c876"></a>eselect locale<br />
 <div class="outline-text-5" id="text-1-2-2-13">
 <div class="org-src-container">
 <pre class="src src-shell">eselect locale list #找到zh_CN.utf8
@@ -877,7 +877,7 @@ eselect locale set
 </div>
 </li>
 
-<li><a id="org7b569e2"></a>内核<br />
+<li><a id="org89d48fe"></a>内核<br />
 <div class="outline-text-5" id="text-1-2-2-14">
 <div class="org-src-container">
 <pre class="src src-shell">
@@ -890,7 +890,7 @@ time genkernel all
 </div>
 </div>
 </li>
-<li><a id="orgded777b"></a>rc<br />
+<li><a id="orge02cc00"></a>rc<br />
 <div class="outline-text-5" id="text-1-2-2-15">
 <div class="org-src-container">
 <pre class="src src-shell">emerge dhcpcd
@@ -910,7 +910,7 @@ passwd donjuan
 </div>
 </div>
 </li>
-<li><a id="orgef76558"></a>grub<br />
+<li><a id="org0bbe34f"></a>grub<br />
 <div class="outline-text-5" id="text-1-2-2-16">
 <div class="org-src-container">
 <pre class="src src-shell">emerge sys-boot/grub
@@ -921,7 +921,7 @@ grub-mkconfig -o /boot
 </div>
 </li>
 
-<li><a id="org4de8833"></a>umount<br />
+<li><a id="org80d282a"></a>umount<br />
 <div class="outline-text-5" id="text-1-2-2-17">
 <div class="org-src-container">
 <pre class="src src-shell">umount /mnt/gentoo/dev
@@ -933,18 +933,58 @@ umount /mnt/gentoo
 </div>
 </li>
 
-<li><a id="org4b9161e"></a>kde<br />
+<li><a id="org3bc4f59"></a>kde<br />
 <div class="outline-text-5" id="text-1-2-2-18">
 <div class="org-src-container">
-<pre class="src src-shell">emerge 
+<pre class="src src-shell">emerge dev-libs/plasma-wayland-protocols-1.10.0
+emerge dev-libs/wayland-1.22.0
+emerge dev-libs/wayland-protocols-1.32
+emerge sddm
+emerge plasma-meta
+emerge kde-plasma/kwalletmanager
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org5ee859c"></a>display-manager<br />
+<div class="outline-text-5" id="text-1-2-2-19">
+<div class="org-src-container">
+<pre class="src src-shell"> emerge gui-libs/display-manager-init
+ vi /etc/conf.d/xdm
+-&gt;  DISPLAYMANAGER="sddm"
+ sudo rc-update add sddm default
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org5e54fc3"></a>fcitx<br />
+<ol class="org-ol">
+<li><a id="org1610234"></a>/etc/environment<br />
+<div class="outline-text-6" id="text-1-2-2-20-1">
+<div class="org-src-container">
+<pre class="src src-shell">#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+QT_IM_MODULE="fcitx"
+GTK_IM_MODULE="fcitx"
+XMODIFIERS="@im=fcitx"
+
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-shell">emerge fcitx fcitx-libpinyin fcitx-qt5 kcm-fcitx libpinyin
 </pre>
 </div>
 </div>
 </li>
 </ol>
+</li>
+</ol>
 </div>
-<div id="outline-container-org59d36f2" class="outline-4">
-<h4 id="org59d36f2"><span class="section-number-4">1.2.3.</span> 安装文件表</h4>
+<div id="outline-container-orga8af8ad" class="outline-4">
+<h4 id="orga8af8ad"><span class="section-number-4">1.2.3.</span> 安装文件表</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <pre class="example">
 acct-group/audio-0-r2
@@ -2068,8 +2108,8 @@ x11-themes/sound-theme-freedesktop-0.8
 </div>
 
 
-<div id="outline-container-orgea82bdb" class="outline-4">
-<h4 id="orgea82bdb"><span class="section-number-4">1.2.4.</span> sdcv</h4>
+<div id="outline-container-orgf5c3bb6" class="outline-4">
+<h4 id="orgf5c3bb6"><span class="section-number-4">1.2.4.</span> sdcv</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
 将字典复制到/usr/share/stardict/dict
@@ -2078,14 +2118,14 @@ x11-themes/sound-theme-freedesktop-0.8
 </div>
 </div>
 
-<div id="outline-container-org93c47a2" class="outline-3">
-<h3 id="org93c47a2"><span class="section-number-3">1.3.</span> 一些问题</h3>
+<div id="outline-container-org7c1f456" class="outline-3">
+<h3 id="org7c1f456"><span class="section-number-3">1.3.</span> 一些问题</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 唐璜铂金</p>
-<p class="date">Created: 2024-01-28 日 15:20</p>
+<p class="date">Created: 2024-01-28 日 18:37</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -592,9 +592,10 @@ en_US.UTF-8 UTF-8
 #+end_src
 **** display-manager
 #+begin_src shell
-  vi /etc/conf.d/xdm
- ->  DISPLAYMANAGER="sddm"
-  sudo rc-update add sddm default
+   emerge gui-libs/display-manager-init
+   vi /etc/conf.d/xdm
+  ->  DISPLAYMANAGER="sddm"
+   sudo rc-update add sddm default
 #+end_src
 **** fcitx
 ***** /etc/environment
