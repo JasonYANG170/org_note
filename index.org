@@ -3,14 +3,17 @@
 donjuan@donjuan.lecturify.net
 #+CAPTION: 唐璜铂金
 #+ATTR_HTML: :width 10%
-[[./donjuan.png]]
+[[./donjuan.png][donjuan]]
 
 ** emacs
 [[./emacs.html]]
 ** linux
-[[./linux.html]]
+[[./linux.html][linux]]
 ** network
-[[./network_sec.html]]
+[[./network_sec.html][network_sec]]
 
 ** algorithm
-[[./algorithms.html]]
+[[./algorithms.html][algorithm]]
+
+** gentoo
+[[./gentoo.html][gentoo]]

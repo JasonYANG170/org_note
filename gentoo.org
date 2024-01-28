@@ -406,39 +406,39 @@ zstd - Enable support for ZSTD compression
 *** /etc/portage/make.conf
 #+begin_src conf
 
-	  # These settings were set by the catalyst build script that automatically
-    # built this stage.
-    # Please consult /usr/share/portage/config/make.conf.example for a more
-    # detailed example.
-    COMMON_FLAGS="-O2 -pipe"
-    CFLAGS="${COMMON_FLAGS}"
-    CXXFLAGS="${COMMON_FLAGS}"
-    FCFLAGS="${COMMON_FLAGS}"
-    FFLAGS="${COMMON_FLAGS}"
+	# These settings were set by the catalyst build script that automatically
+  # built this stage.
+  # Please consult /usr/share/portage/config/make.conf.example for a more
+  # detailed example.
+  COMMON_FLAGS="-O2 -pipe"
+  CFLAGS="${COMMON_FLAGS}"
+  CXXFLAGS="${COMMON_FLAGS}"
+  FCFLAGS="${COMMON_FLAGS}"
+  FFLAGS="${COMMON_FLAGS}"
 
-    # NOTE: This stage was built with the bindist Use flag enabled
+  # NOTE: This stage was built with the bindist Use flag enabled
 
-    # This sets the language of build output to English.
-    # Please keep this setting intact when reporting bugs.
-    LC_MESSAGES=C.utf8
-    GENTOO_MIRRORS="rsync://127.0.0.1/repo/gentoo/"
-    #GENTOO_MIRRORS="rsync://mirror.nju.edu.cn/gentoo/"
-	    USE="-gnome  qt5 kde dvd cdr acl alsa jack pulseaudio bluetooth"
-    VIDEO_CARDS="amdgpu radeonsi"
-    MAKEOPTS="-j8"
+  # This sets the language of build output to English.
+  # Please keep this setting intact when reporting bugs.
+  LC_MESSAGES=C.utf8
+  GENTOO_MIRRORS="rsync://127.0.0.1/repo/gentoo/"
+  #GENTOO_MIRRORS="rsync://mirror.nju.edu.cn/gentoo/"
+  USE="-gnome  qt5 kde dvd cdr acl alsa jack pulseaudio bluetooth wayland browser-integration discover networkmanager sddm"
+  VIDEO_CARDS="amdgpu radeonsi"
+  MAKEOPTS="-j8"
 
 
-    # ccache
-    #FEATURES="ccache -test"
-    #CCACHE_DIR="/var/cache/ccache"
+  # ccache
+  #FEATURES="ccache -test"
+  #CCACHE_DIR="/var/cache/ccache"
 
-    GRUB_PLATFORMS="efi-64"
+  GRUB_PLATFORMS="efi-64"
 
-    ACCEPT_LICENSE="*"
+  ACCEPT_LICENSE="*"
 
-    ALSA_CARDS="hda_intel"
+  ALSA_CARDS="hda_intel"
 
-    L10N="en-US zh-CN en zh"
+  L10N="en-US zh-CN en zh"
 #+end_src
 
 *** /etc/portage/repos.conf/gentoo.conf
@@ -583,7 +583,34 @@ en_US.UTF-8 UTF-8
 
 **** kde
 #+begin_src shell
-  emerge 
+  emerge dev-libs/plasma-wayland-protocols-1.10.0
+  emerge dev-libs/wayland-1.22.0
+  emerge dev-libs/wayland-protocols-1.32
+  emerge sddm
+  emerge plasma-meta
+  emerge kde-plasma/kwalletmanager
+#+end_src
+**** display-manager
+#+begin_src shell
+  vi /etc/conf.d/xdm
+ ->  DISPLAYMANAGER="sddm"
+  sudo rc-update add sddm default
+#+end_src
+**** fcitx
+***** /etc/environment
+#+begin_src shell
+  #
+  # This file is parsed by pam_env module
+  #
+  # Syntax: simple "KEY=VAL" pairs on separate lines
+  #
+  QT_IM_MODULE="fcitx"
+  GTK_IM_MODULE="fcitx"
+  XMODIFIERS="@im=fcitx"
+
+#+end_src
+#+begin_src shell
+  emerge fcitx fcitx-libpinyin fcitx-qt5 kcm-fcitx libpinyin
 #+end_src
 *** 安装文件表
 #+begin_src
