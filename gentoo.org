@@ -1738,4 +1738,15 @@ x11-themes/sound-theme-freedesktop-0.8
 将字典复制到/usr/share/stardict/dict
 
 ** 一些问题
-
+*** steam
+**** 激活steam源
+#+begin_src shell
+  emerge --ask --noreplace app-eselect/eselect-repository dev-vcs/git
+  eselect repository enable steam-overlay
+  emaint sync -r steam-overlay
+#+end_src
+**** 开启use /etc/portage/package.accept_keywords/steam
+#+begin_src
+*/*::steam-overlay
+games-util/game-device-udev-rules
+#+end_src
