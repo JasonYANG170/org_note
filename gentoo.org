@@ -1324,7 +1324,34 @@ games-util/game-device-udev-rules
 #+end_src
 
 *** 特殊需求
+**** portage特性
+#+begin_src shell
+  man make.conf
+#+end_src
 
+查看FEATURES默认设置
+#+begin_src shell
+  emerge --info |grep ^FEATURES
+#+end_src
+**** 分布式编译distcc
+#+begin_src shell
+  emerge distcc
+  discc-config --set-hosts "host1 host2 host3"
+  rc-update add distccd default
+  /etc/init.d/distccd start
+#+end_src
+**** 缓冲编译ccache
+ccache是一个快速编译器缓存  无论何时编译应用程序 它都将缓存中间结果 以便每当重新编译相同的程序时 编译时间大大减少 第一次运行ccache时 它会比正常编译慢得多  但是后续的重新编译应该更快  ccache只有在相同的应用程序将被重新编译多次 (或相同应用程序的升级频繁发生)时才有用; 因此它通常只对软件开发人员有用
+#+begin_src shell
+  emerge ccache
+#+end_src
+***** 在make.conf中加入ccache支持
+#+begin_src /etc/portage/make.conf
+  FEATURES="ccache"
+  CCACHE_SIZE="2G"
+#+end_src
+***** 设置CCACHE_DIR环境变量
+CCACHE_DIR="/var/tmp/ccache" ccache -s
 ** portage报错
 *** mask
 | ~arch keyword               | 该软件没有经过充分的测试 不能进入稳定分支 请等待一段时间后尝试使用                                                                |
