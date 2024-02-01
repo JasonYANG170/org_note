@@ -1750,3 +1750,27 @@ x11-themes/sound-theme-freedesktop-0.8
 */*::steam-overlay
 games-util/game-device-udev-rules
 #+end_src
+** 包
+| gentoolkit | 包含equery等gentoo portage管理工具 |
+| flaggie    | 方便加USE                          |
+
+** portage
+*** 更新仓库
+#+begin_src shell
+  emerge --sync
+#+end_src
+*** 移除软件
+#+begin_src shell
+  emerge --deselect package
+#+end_src
+*** 搜索软件
+#+begin_src shell
+  emerge --search name //根据名字搜索
+  emerge --searchdesc describe //根据描述搜索
+#+end_src
+*** 安装软件
+#+begin_src shell
+  emerge package
+  emerge --pretend package //查看依赖
+  emerge --fetchonly package //仅下载源代码至/var/cache/distfiles
+#+end_src
