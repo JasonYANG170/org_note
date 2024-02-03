@@ -9,3 +9,8 @@
 #+begin_src
   echo 3 >/proc/sys/vm/drop_caches
 #+end_src
+** BUG
+*** `/usr/bin/sudo must be owned by uid 0 and have the setuid bit set`
+#+begin_src
+chmod 4755 /usr/bin/sudo
+#+end_src
