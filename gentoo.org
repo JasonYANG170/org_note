@@ -151,6 +151,16 @@ en_US.UTF-8 UTF-8
 #+begin_src shell
   emerge fcitx fcitx-libpinyin fcitx-qt5 kcm-fcitx libpinyin
 #+end_src
+**** 服务启动
+#+begin_src shell
+sudo emerge alsa-utils
+sudo emerge alsa-plugins
+
+sudo rc-update add udev sysinit
+sudo rc-update add elogind boot
+sudo rc-update add dbus default
+sudo rc-update add alsasound boot
+#+end_src
 *** 安装文件表
 #+begin_src
 acct-group/audio-0-r2
