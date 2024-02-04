@@ -160,6 +160,7 @@ sudo rc-update add udev sysinit
 sudo rc-update add elogind boot
 sudo rc-update add dbus default
 sudo rc-update add alsasound boot
+sudo rc-update add Networkmanager default
 #+end_src
 *** 安装文件表
 #+begin_src
