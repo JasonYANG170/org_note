@@ -1331,8 +1331,12 @@ games-util/game-device-udev-rules
 *** 系统更新
 #+begin_src shell
   emerge --update --deep --newuse @world
+#+end_src 
+*** plasma-wayland
+#+begin_src ~/.profile
+#!/bin/sh
+dbus-launch --exit-with-session startplasma-wayland
 #+end_src
-
 *** 特殊需求
 **** portage特性
 #+begin_src shell
