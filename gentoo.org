@@ -1815,7 +1815,7 @@ zstd - Enable support for ZSTD compression
   LC_MESSAGES=C.utf8
   GENTOO_MIRRORS="rsync://127.0.0.1/repo/gentoo/"
   #GENTOO_MIRRORS="rsync://mirror.nju.edu.cn/gentoo/"
-  USE="-gnome  qt5 kde dvd cdr acl alsa jack pulseaudio bluetooth wayland browser-integration discover networkmanager sddm"
+  USE="-gnome wayland  qt5 kde dvd cdr acl alsa jack pulseaudio bluetooth wayland browser-integration discover networkmanager sddm"
   VIDEO_CARDS="amdgpu radeonsi"
   MAKEOPTS="-j8"
 
