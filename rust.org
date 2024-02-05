@@ -1,12 +1,22 @@
 * Rust
-** HashMap
-*** 创建HashMap
-#+begin_src Rust
-  use std::collections::HashMap;
-  let mut map = HashMap::new();
-#+end_src
-*** 方法
-
-| 插入覆盖 | .insert(k:K, v:V) |
-| 查询    | .get(k:K)         |
-|        |                   |
+** net
+TCP/UDP网络原语
+*** 结构体
+**** std::net::TcpListener
+TCP套接字服务器,侦听链接
+drop时关闭服务器
+***** 方法
+****** bind<A: ToSocketAddrs>(addr: A) ->Result<TcpListener>
+创建一个新的TcpListener并绑定到addr地址,返回一个TcpListener侦听器
+A为实现了ToSocketAddrs Trait的任意类型
+****** accept(&self) -> Result<(TcpStream, ScoketAddr)> 
+接受来自此TcpListener的传入连接
+返回一个包含TcpStream和对方地址的元组
+****** incoming(&self) ->Incoming<'_>
+返回在此侦听器接收到的迭代器
+对其迭代等效于在循环中调用TcpListener::accept
+****** local_addr(&self) -> Result<SocketAddr>
+返回侦听器的本地套接字地址
+****** set_ttl(&self, ttl:u32) -> Result<()>
+设置套接字上的IP_TTL选项值
+此值设置从该套接字发送的每个数据包中使用的生存时间字段

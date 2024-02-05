@@ -161,6 +161,10 @@ sudo rc-update add elogind boot
 sudo rc-update add dbus default
 sudo rc-update add alsasound boot
 #+end_src
+**** kde
+#+begin_src ~/.profile
+  dbus-launch --exit-with-session startplasma-wayland
+#+end_src
 *** 安装文件表
 #+begin_src
 acct-group/audio-0-r2

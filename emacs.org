@@ -163,7 +163,19 @@ global-display-line-numbers-mode 'open 全局行号
 
 
 
+** hideshow
+hs-minor-mode是用于折叠代码块的模式
 
+全局开启
+#+begin_src lisp
+(setq-default hs-minor-mode t)
+#+end_src
+*** 键位
+| C-c @ C-M-s | 展开所有       |   |
+| C-c @ C-s   | 显示当前代码区 |   |
+| C-c @ C-M-h | 折叠所有代码   |   |
+| C-c @ C-h   | 折叠当前代码区 |   |
+| C-c @ C-c   | 折叠/显示当前代码区     |   |
 ** flymake-mode
 ** winner-mode
 ** flyspell
