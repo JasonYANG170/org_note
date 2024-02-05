@@ -160,6 +160,7 @@ sudo rc-update add udev sysinit
 sudo rc-update add elogind boot
 sudo rc-update add dbus default
 sudo rc-update add alsasound boot
+sudo rc-update add Networkmanager default
 #+end_src
 **** kde
 #+begin_src ~/.profile
@@ -1335,8 +1336,12 @@ games-util/game-device-udev-rules
 *** 系统更新
 #+begin_src shell
   emerge --update --deep --newuse @world
+#+end_src 
+*** plasma-wayland
+#+begin_src ~/.profile
+#!/bin/sh
+dbus-launch --exit-with-session startplasma-wayland
 #+end_src
-
 *** 特殊需求
 **** portage特性
 #+begin_src shell
