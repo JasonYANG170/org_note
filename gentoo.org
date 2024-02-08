@@ -1864,3 +1864,9 @@ sync-openpgp-key-refresh-retry-delay-mult = 4
 sync-webrsync-verify-signature = no
 	  
 #+end_src
+
+** 部分包配置
+*** dev-lang/rust
+#+begin_src
+  +clippy +doc +rust-analyzer +rust-src +rust-fmt
+#+end_src

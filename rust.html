@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-08 四 10:32 -->
+<!-- 2024-02-08 四 10:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,86 +200,95 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org982a105">1. DonjuanPlatinum</a>
+<li><a href="#orgbdac077">1. Rust</a>
 <ul>
-<li><a href="#org5842491">1.1. emacs</a></li>
-<li><a href="#org9438987">1.2. linux</a></li>
-<li><a href="#org0111c6f">1.3. network</a></li>
-<li><a href="#org032af3d">1.4. algorithm</a></li>
-<li><a href="#orgd44b251">1.5. gentoo</a></li>
-<li><a href="#org04766f9">1.6. rust</a></li>
+<li><a href="#org2449d03">1.1. net</a>
+<ul>
+<li><a href="#orga8dc999">1.1.1. 结构体</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org982a105" class="outline-2">
-<h2 id="org982a105"><span class="section-number-2">1.</span> DonjuanPlatinum</h2>
+<div id="outline-container-orgbdac077" class="outline-2">
+<h2 id="orgbdac077"><span class="section-number-2">1.</span> Rust</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-donjuan@donjuan.lecturify.net
-</p>
-<p width="10%">
-<a href="./donjuan.png" width="10%">donjuan</a>
-</p>
 </div>
-
-<div id="outline-container-org5842491" class="outline-3">
-<h3 id="org5842491"><span class="section-number-3">1.1.</span> emacs</h3>
+<div id="outline-container-org2449d03" class="outline-3">
+<h3 id="org2449d03"><span class="section-number-3">1.1.</span> net</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-<a href="./emacs.html">./emacs.html</a>
+TCP/UDP网络原语
 </p>
 </div>
+<div id="outline-container-orga8dc999" class="outline-4">
+<h4 id="orga8dc999"><span class="section-number-4">1.1.1.</span> 结构体</h4>
+<div class="outline-text-4" id="text-1-1-1">
 </div>
-<div id="outline-container-org9438987" class="outline-3">
-<h3 id="org9438987"><span class="section-number-3">1.2.</span> linux</h3>
-<div class="outline-text-3" id="text-1-2">
+<ol class="org-ol">
+<li><a id="orgcb0e48f"></a>std::net::TcpListener<br />
+<div class="outline-text-5" id="text-1-1-1-1">
 <p>
-<a href="./linux.html">linux</a>
+TCP套接字服务器,侦听链接
+drop时关闭服务器
 </p>
 </div>
-</div>
-<div id="outline-container-org0111c6f" class="outline-3">
-<h3 id="org0111c6f"><span class="section-number-3">1.3.</span> network</h3>
-<div class="outline-text-3" id="text-1-3">
+<ol class="org-ol">
+<li><a id="orgdc07f6c"></a>方法<br />
+<ol class="org-ol">
+<li><a id="orgbf8df89"></a>bind&lt;A: ToSocketAddrs&gt;(addr: A) -&gt;Result&lt;TcpListener&gt;<br />
+<div class="outline-text-7" id="text-1-1-1-1-1-1">
 <p>
-<a href="./network_sec.html">network<sub>sec</sub></a>
+创建一个新的TcpListener并绑定到addr地址,返回一个TcpListener侦听器
+A为实现了ToSocketAddrs Trait的任意类型
 </p>
 </div>
-</div>
-
-<div id="outline-container-org032af3d" class="outline-3">
-<h3 id="org032af3d"><span class="section-number-3">1.4.</span> algorithm</h3>
-<div class="outline-text-3" id="text-1-4">
+</li>
+<li><a id="orgc33cb82"></a>accept(&amp;self) -&gt; Result&lt;(TcpStream, ScoketAddr)&gt;<br />
+<div class="outline-text-7" id="text-1-1-1-1-1-2">
 <p>
-<a href="./algorithms.html">algorithm</a>
+接受来自此TcpListener的传入连接
+返回一个包含TcpStream和对方地址的元组
 </p>
 </div>
-</div>
-
-<div id="outline-container-orgd44b251" class="outline-3">
-<h3 id="orgd44b251"><span class="section-number-3">1.5.</span> gentoo</h3>
-<div class="outline-text-3" id="text-1-5">
+</li>
+<li><a id="org5708bea"></a>incoming(&amp;self) -&gt;Incoming&lt;'_&gt;<br />
+<div class="outline-text-7" id="text-1-1-1-1-1-3">
 <p>
-<a href="./gentoo.html">gentoo</a>
+返回在此侦听器接收到的迭代器
+对其迭代等效于在循环中调用TcpListener::accept
 </p>
 </div>
-</div>
-
-<div id="outline-container-org04766f9" class="outline-3">
-<h3 id="org04766f9"><span class="section-number-3">1.6.</span> rust</h3>
-<div class="outline-text-3" id="text-1-6">
+</li>
+<li><a id="org5baaedc"></a>local<sub>addr</sub>(&amp;self) -&gt; Result&lt;SocketAddr&gt;<br />
+<div class="outline-text-7" id="text-1-1-1-1-1-4">
 <p>
-<a href="./rust.html">rust</a>
+返回侦听器的本地套接字地址
 </p>
+</div>
+</li>
+<li><a id="org5e92c30"></a>set<sub>ttl</sub>(&amp;self, ttl:u32) -&gt; Result&lt;()&gt;<br />
+<div class="outline-text-7" id="text-1-1-1-1-1-5">
+<p>
+设置套接字上的IP<sub>TTL选项值</sub>
+此值设置从该套接字发送的每个数据包中使用的生存时间字段
+</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 唐璜</p>
-<p class="date">Created: 2024-02-08 四 10:32</p>
+<p class="date">Created: 2024-02-08 四 10:31</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

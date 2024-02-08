@@ -18,4 +18,5 @@ donjuan@donjuan.lecturify.net
 ** gentoo
 [[./gentoo.html][gentoo]]
 
-
+** rust
+[[./rust.html][rust]]
