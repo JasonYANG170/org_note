@@ -13,7 +13,7 @@ http {
 }
 
 #+end_src
-*** 基本反响代理
+*** 基本反向代理
 #+begin_src
      location / {
 	proxy_pass http://127.0.0.1:8008;
@@ -21,7 +21,10 @@ http {
 #+end_src
 ** matrix conduit
 [[https://gitlab.com/famedly/conduit][gitlab_conduit]]
+*** conduit
 #+begin_src
+  version: '3'
+
 services:
   homeserver:
     container_name: conduit
@@ -42,20 +45,37 @@ services:
         CONDUIT_ALLOW_REGISTRATION: 'true'
         CONDUIT_ALLOW_FEDERATION: 'true'
         CONDUIT_ALLOW_CHECK_FOR_UPDATES: 'true'
-        CONDUIT_TRUSTED_SERVERS: '["matrix.org"]'
+        CONDUIT_TRUSTED_SERVERS: '["mozilla.org"]'
         #CONDUIT_MAX_CONCURRENT_REQUESTS: 100
         #CONDUIT_LOG: warn,rocket=off,_=off,sled=off
         CONDUIT_ADDRESS: 0.0.0.0
         CONDUIT_CONFIG: '' # Ignore this
+        CONDUIT_TURN_URIS: '["turn:matrix.donjuan.lecturify.net:5349?transport=udp", "turn:matrix.donjuan.lecturify.net:5349?transport=tcp"]'
+        CONDUIT_TURN_SECRET: "your secret in coturn.conf"
+
+  coturn:
+    container_name: coturn
+    image: docker.nju.edu.cn/coturn/coturn
+    network_mode: host
+    volumes:
+      - ./coturn.conf:/etc/coturn/turnserver.conf
+      - ../letsencrypt/live/donjuan.lecturify.net/fullchain.pem:/etc/ssl/certs/cert.pem:ro
+      - ../letsencrypt/live/donjuan.lecturify.net/privkey.pem:/etc/ssl/private/privkey.pem:ro
   heisenbridge:
     container_name: heisenbridge
     image: docker.nju.edu.cn/hif1/heisenbridge
-    command: " -l heisenbridge -c /data/config http://conduit:8008"
+    command: "-c /data/config http://conduit:8008"
     networks:
       conduit:
     volumes:
       - ./heisenbridge_data:/data
-    
+  element-web:
+    container_name: element
+    image: docker.io/vectorim/element-web
+    volumes:
+      - ./element_config:/app/config.json
+    ports:
+      - 8777:80
 networks:
   conduit:
 
@@ -63,4 +83,12 @@ networks:
 *** heisenbridge
 #+begin_src shell
   docker run  --rm -v ./heisenbridge_data:/data docker.nju.edu.cn/hif1/heisenbridge -l heisenbridge  --generate-compat -c /data/config http://conduit:8008
+#+end_src
+*** coturn
+coturn.conf
+#+begin_src
+use-auth-secret
+static-auth-secret=your secret
+realm=matrix.donjuan.lecturify.net
+
 #+end_src
