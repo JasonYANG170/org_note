@@ -1868,5 +1868,9 @@ sync-webrsync-verify-signature = no
 ** 部分包配置
 *** dev-lang/rust
 #+begin_src
-  +clippy +doc +rust-analyzer +rust-src +rust-fmt
+  clippy doc rust-analyzer rust-src rust-fmt
+#+end_src
+*** app-editors/emacs
+#+begin_src
+  app-editors/emacs libxml2
 #+end_src

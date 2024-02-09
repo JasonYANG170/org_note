@@ -23,7 +23,7 @@ http {
 [[https://gitlab.com/famedly/conduit][gitlab_conduit]]
 *** conduit
 #+begin_src
-  version: '3'
+version: '3'
 
 services:
   homeserver:
@@ -51,7 +51,7 @@ services:
         CONDUIT_ADDRESS: 0.0.0.0
         CONDUIT_CONFIG: '' # Ignore this
         CONDUIT_TURN_URIS: '["turn:matrix.donjuan.lecturify.net:5349?transport=udp", "turn:matrix.donjuan.lecturify.net:5349?transport=tcp"]'
-        CONDUIT_TURN_SECRET: "your secret in coturn.conf"
+        CONDUIT_TURN_SECRET: "conduit6666"
 
   coturn:
     container_name: coturn
@@ -76,6 +76,12 @@ services:
       - ./element_config:/app/config.json
     ports:
       - 8777:80
+  sysdent:
+    container_name: sysdent
+    image: docker.nju.edu.cn/matrixdotorg/sydent
+    volumes:
+      - ./sysdentdata:/data
+    network_mode: host
 networks:
   conduit:
 
