@@ -19,3 +19,48 @@ http {
 	proxy_pass http://127.0.0.1:8008;
 }
 #+end_src
+** matrix conduit
+[[https://gitlab.com/famedly/conduit][gitlab_conduit]]
+#+begin_src
+services:
+  homeserver:
+    container_name: conduit
+    image: docker.nju.edu.cn/matrixconduit/matrix-conduit:latest
+    #    network_mode: host
+    networks:
+      conduit:
+    ports:
+      - 8008:8008
+    volumes:
+      - ./data:/data
+    environment:
+        CONDUIT_SERVER_NAME: matrix.donjuan.lecturify.net # EDIT THIS
+        CONDUIT_DATABASE_PATH: /data
+        CONDUIT_DATABASE_BACKEND: rocksdb
+        CONDUIT_PORT: 8008
+        CONDUIT_MAX_REQUEST_SIZE: 20_000_000_0 # in bytes, ~200 MB
+        CONDUIT_ALLOW_REGISTRATION: 'true'
+        CONDUIT_ALLOW_FEDERATION: 'true'
+        CONDUIT_ALLOW_CHECK_FOR_UPDATES: 'true'
+        CONDUIT_TRUSTED_SERVERS: '["matrix.org"]'
+        #CONDUIT_MAX_CONCURRENT_REQUESTS: 100
+        #CONDUIT_LOG: warn,rocket=off,_=off,sled=off
+        CONDUIT_ADDRESS: 0.0.0.0
+        CONDUIT_CONFIG: '' # Ignore this
+  heisenbridge:
+    container_name: heisenbridge
+    image: docker.nju.edu.cn/hif1/heisenbridge
+    command: " -l heisenbridge -c /data/config http://conduit:8008"
+    networks:
+      conduit:
+    volumes:
+      - ./heisenbridge_data:/data
+    
+networks:
+  conduit:
+
+#+end_src
+*** heisenbridge
+#+begin_src shell
+  docker run  --rm -v ./heisenbridge_data:/data docker.nju.edu.cn/hif1/heisenbridge -l heisenbridge  --generate-compat -c /data/config http://conduit:8008
+#+end_src
