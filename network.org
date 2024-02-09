@@ -1,0 +1,21 @@
+*
+** certbot
+dns txt记录认证
+#+begin_src shell
+  certbot certonly --preferred-challenges dns -d "*.donjuan.lecturify.net" --manual
+#+end_src
+** nginx
+*** 配置ssl
+#+begin_src
+http {
+    ssl_certificate /etc/letsencrypt/live/donjuan.lecturify.net/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/donjuan.lecturify.net/privkey.pem;
+}
+
+#+end_src
+*** 基本反响代理
+#+begin_src
+     location / {
+	proxy_pass http://127.0.0.1:8008;
+}
+#+end_src
