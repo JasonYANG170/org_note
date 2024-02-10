@@ -1,0 +1,56 @@
+* tools
+** GPG
+*** 生成密钥
+#+begin_src shell
+  gpg --full-generate-key
+#+end_src
+*** 生成吊销证书
+#+begin_src shell
+  gpg --gen-revoke 用户ID
+#+end_src
+*** 列出已有密钥
+#+begin_src shell
+  gpg --list-keys
+#+end_src
+*** 删除密钥
+#+begin_src shell
+  gpg --delete-secret-keys 用户ID #删除私钥
+  gpg --delete-keys 用户ID #删除公钥
+#+end_src
+*** 输出密钥
+#+begin_src shell
+  gpg --armor --output pub-key.txt --export 用户ID #输出公钥到文件
+  gpg --armor --output priv-key.txt --export-secret-keys 用户ID #输出私钥到文件
+  gpg --export --export-options export-minimal --armor 用户ID #输出到终端
+#+end_src
+*** 上传公钥
+#+begin_src shell
+  gpg --send-keys 用户ID --keyserver keyring.debian.org
+#+end_src
+*** 生成公钥指纹
+#+begin_src shell
+  gpg --fingerprint 用户ID
+#+end_src
+*** 导入密钥
+#+begin_src shell
+  gpg --import 密钥文件
+#+end_src
+*** 加密
+#+begin_src shell
+  gpg --recipient 用户ID --output output.txt --encrypt source.txt
+  gpg -r 用户ID -e source.txt
+#+end_src
+*** 解密
+#+begin_src shell
+  gpg --output output.txt --decrypt sourcr.txt
+  gpg -r 用户ID -d source.txt 
+#+end_src
+*** 签名文件
+#+begin_src shell
+  gpg -s file
+#+end_src
+*** 验证签名
+#+begin_src shell
+  gpg --verify 签名 file
+#+end_src
+
