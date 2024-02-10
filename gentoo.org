@@ -1874,3 +1874,7 @@ sync-webrsync-verify-signature = no
 #+begin_src
   app-editors/emacs libxml2
 #+end_src
+*** net-wireless/lorcon
+#+begin_src
+  net-wireless/lorcon python
+#+end_src
