@@ -1,0 +1,23 @@
+* Emacs Lisp
+** 解除变量绑定
+#+begin_src elisp
+(makunbound 'var)
+#+end_src
+** 模式匹配
+*** 简单匹配
+cl-case类似于switch
+#+begin_src elisp
+  (cl-case var
+    (pattern1 (message "1"))
+    (pattern2 (setq a "2")
+    )
+#+end_src
+*** 强大匹配
+pcase比cl-case更灵活,列表结构,变量,常量,字符串等
+#+begin_src elisp
+  (pcase var
+    (pattern1 (message "1"))
+    (pattern2 (setq a "2")
+    )
+#+end_src
+
