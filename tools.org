@@ -54,3 +54,55 @@
   gpg --verify 签名 file
 #+end_src
 
+** ffmpeg
+*** 信息显示
+显示编码器
+#+begin_src shell
+  ffmpeg  -encoders
+#+end_src
+显示解码器
+#+begin_src shell
+  ffmpeg  -decoders
+#+end_src
+显示支持协议
+#+begin_src shell
+  ffmpeg  -protocols
+#+end_src
+显示支持文件格式
+#+begin_src shell
+  ffmpeg -formats
+#+end_src
+列出杂支持比特流过滤器
+#+begin_src
+  ffmpeg -bsfs
+#+end_src
+列出支持滤镜
+#+begin_src
+  ffmpeg -filters
+#+end_src
+列出支持图像采样格式
+#+begin_src
+  ffmpeg -pix_fmts
+#+end_src
+列出支持声音采样格式
+#+begin_src
+  ffmpeg -sample_fmts
+#+end_src
+*** 播放视频
+#+begin_src shell
+  ffplay 视频.mp4
+  ffplay -autoexit 视频.mp4 #自动退出
+#+end_src
+*** 输入选项
+| -i  | 指定输入文件          |
+| -f  | 指定格式[忽lue拓展名] |
+| -ss | 设定输入文件起始点          |
+
+** strace
+
+** perf
+** find
+子目录批量sed
+#+begin_src
+find ./src -type f -name '*.rs' -exec sed -i 's/algori/algorithm_rust/' {} +
+#+end_src

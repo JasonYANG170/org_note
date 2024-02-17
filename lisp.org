@@ -21,3 +21,21 @@ pcase比cl-case更灵活,列表结构,变量,常量,字符串等
     )
 #+end_src
 
+** 选择区判定
+*** 选择区开头
+#+begin_src elisp
+  (region-beginning) ;返回选择区开头
+#+end_src
+*** 选择区结尾
+#+begin_src elisp
+  (region-end) ;返回选择区结尾
+#+end_src
+** 获取指定范围内容
+#+begin_src elisp
+  (buffer-substring-no-properties BEGIN END) ;获取从BEGIN-END的内容
+#+end_src
+** 获取输入
+从小缓冲区读取用户输入
+#+begin_src elisp
+  (read-string "Please enter something: ")
+#+end_src
