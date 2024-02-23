@@ -1,0 +1,10 @@
+* org_note
+** table
+[[#emacs][emacs]]
+[[#algorithms][algori]]
+*** emacs
+*** algorithms
+*** linux
+*** network
+*** network_sec
+*** lisp
