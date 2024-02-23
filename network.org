@@ -152,3 +152,28 @@ element_config
 
 #+end_src
 *** 
+** maddy mail
+*** docker-compose.yml
+#+begin_src yml
+  version: '3'
+
+services:
+  maddy:
+    container_name: maddy
+    image: docker.nju.edu.cn/foxcpp/maddy
+    network_mode: host
+    volumes:
+      - ./data:/data
+      - ../repo:/repo
+    environment:
+      - MADDY_HOSTNAME=www.donjuan.lecturify.net
+      - MADDY_DOMAIN=donjuan.lecturify.net
+#+end_src
+*** users
+#+begin_src shell
+  docker exec -it maddy sh
+  maddy creds create donjuan@donjuan.lecturify.net
+#+end_src
+*** client
+imap,smtp登陆时 账号要带域名
+smtp使用STARTTLS

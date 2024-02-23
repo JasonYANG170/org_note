@@ -50,8 +50,10 @@ sdcv
 | 函数         | C-h f    | describe-function    |
 | 变量         | C-h v    | describe-variable    |
 | 帮助的帮助    | C-h ?    | help-for-help        |
-*** 注释
-| M -; | 快速注释选中块 |   |
+*** 注释与排版
+| M -;  | 快速注释选中块 |   |
+| C-M-\ | 快速排版TAB   | indent-region |
+
 ** magit
 | 显示所有选项 | C-x M-g | magit-dispatch |
 ** org-mode
